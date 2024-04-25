@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 
-const Luckygames = () => (
+const LuckyGames = () => (
   <Typography 
     component="h1" 
     variant="h3" 
@@ -15,4 +15,4 @@ const Luckygames = () => (
   </Typography>
 );
 
-export default Luckygames;
+export default LuckyGames;

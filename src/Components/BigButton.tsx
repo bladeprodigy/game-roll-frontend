@@ -14,15 +14,14 @@ const BigButton: React.FC = () => {
     navigate('/rolled');
   };
 
-  // Definiujemy animację rozbłysku
+  
   const glow = keyframes`
     0%, 100% {
       box-shadow: 0 0 5px ${theme.palette.secondary.main}, 0 0 10px ${theme.palette.secondary.main}, 0 0 15px ${theme.palette.secondary.main}, 0 0 20px ${theme.palette.secondary.main};
     }
     50% {
       box-shadow: 0 0 10px ${theme.palette.secondary.main}, 0 0 20px ${theme.palette.secondary.main}, 0 0 30px ${theme.palette.secondary.main}, 0 0 40px ${theme.palette.secondary.main};
-    }
-  `;
+    }`;
 
   return (
     <Box
@@ -42,7 +41,7 @@ const BigButton: React.FC = () => {
           backgroundImage: 'url(/gwiazdki.png)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          animation: `${glow} 20s infinite`, // Zwiększamy czas trwania animacji
+          animation: `${glow} 20s infinite`,
         }}
       >
         <Typography 

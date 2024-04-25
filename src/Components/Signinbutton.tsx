@@ -1,12 +1,12 @@
 // SignInButton.tsx
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom'; // Zmień na useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 const SignInButton = () => {
-  const navigate = useNavigate(); // Zmień na useNavigate
+  const navigate = useNavigate(); 
 
   const handleClick = () => {
-    navigate('/roll'); // Zmień na navigate
+    navigate('/roll'); 
   };
 
   return (

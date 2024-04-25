@@ -2,8 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import Theme from './theme';
 import LoginPage from './Pages/LoginPage';
-import Losowanie from './Pages/Losowanie';
-import Wylosowane from './Pages/Wylosowane';
+import Roll from './Pages/Roll';
+import Rolled from './Pages/Rolled';
+import Game from './Pages/Game';
 
 const App = () => {
   return (
@@ -12,8 +13,9 @@ const App = () => {
         <BrowserRouter> 
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/roll" element={<Losowanie />} />
-            <Route path="/rolled" element={<Wylosowane />} />
+            <Route path="/roll" element={<Roll />} />
+            <Route path="/rolled" element={<Rolled />} />
+            <Route path="/Game" element={<Game />} />
           </Routes>
         </BrowserRouter>
     </ThemeProvider>

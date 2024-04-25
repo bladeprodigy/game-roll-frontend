@@ -1,5 +1,3 @@
-
-// PasswordField.tsx
 import TextField from '@mui/material/TextField';
 
 const PasswordField = () => (

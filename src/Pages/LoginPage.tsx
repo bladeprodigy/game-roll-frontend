@@ -7,14 +7,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import AvatarComponent from '../Components/AvatarComponent';
 import WelcomeText from '../Components/WelcomeText';
-import Luckygames from '../Components/LuckyGames';
+import LuckyGames from '../Components/LuckyGames';
 import LoginText from '../Components/Logintext';
 import Emailform from '../Components/Emailform';
 import PasswordField from '../Components/Passwordform';
 import SignInButton from '../Components/Signinbutton';
 import CopyrightComponent from '../Components/CopyrightComponent';
-
-
 
 export function LoginPage() {
  
@@ -39,7 +37,7 @@ export function LoginPage() {
       >
         <AvatarComponent />
         <WelcomeText />
-        <Luckygames />
+        <LuckyGames />
         <LoginText />
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 5 }}>
           <Emailform />

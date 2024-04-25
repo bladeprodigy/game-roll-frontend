@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const PrawyGorny: React.FC = () => (
+const RightUpper: React.FC = () => (
   <Box
     sx={{
       display: 'flex',
@@ -21,7 +21,7 @@ const PrawyGorny: React.FC = () => (
       sx={{
         fontSize: '1rem',
         padding: '5px 20px',
-        marginRight: '5px', // add margin to separate the buttons
+        marginRight: '5px', 
       }}
     >
       <Typography 
@@ -59,4 +59,4 @@ const PrawyGorny: React.FC = () => (
   </Box>
 );
 
-export default PrawyGorny;
+export default RightUpper;

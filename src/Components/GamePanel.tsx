@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Image from '../assets/ikonka.png';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom'; 
 
 
 const FlipCard = styled(Card)(({ theme }) => ({
@@ -46,14 +47,14 @@ const StyledButton = styled(Button)(({
   color: '#ad1090',
   backgroundColor: '#e6dc2e',
   boxShadow: '1px 1px 15px 5px rgba(0, 0, 0, 0.5)',
-  borderRadius: '25px', // add this line to round the corners
+  borderRadius: '25px', 
   fontFamily: 'BlinkMacSystemFont',        
-  textShadow: '1px 1px 1px rgba(0, 0, 0, 0.5)', // add text shadow
+  textShadow: '1px 1px 1px rgba(0, 0, 0, 0.5)', 
   '&.flipped': {
     transform: 'translateX(-50%) rotateY(180deg)',
   },
   '&:hover': {
-    backgroundColor: '#e6dc2e', // change this to the color you want on hover
+    backgroundColor: '#e6dc2e', 
   },
 }));
 
@@ -62,13 +63,15 @@ const CardsContainer = styled('div')({
   justifyContent: 'center',
 });
 
-const PanelGry: React.FC = () => {
+const GamePanel: React.FC = () => {
   const [flipped1, setFlipped1] = useState(false);
   const [flipped2, setFlipped2] = useState(false);
   const [flipped3, setFlipped3] = useState(false);
+  const navigate = useNavigate(); 
 
   const handleButtonClick = (event: React.MouseEvent) => {
     event.stopPropagation();
+    navigate('/Game'); 
   };
 
   return (
@@ -134,4 +137,4 @@ const PanelGry: React.FC = () => {
   );
 };
 
-export default PanelGry;
+export default GamePanel;

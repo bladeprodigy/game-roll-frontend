@@ -1,11 +1,10 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import PanelGry from '../Components/PanelGry';
-import PrawyGorny from '../Components/PrawyGórny';
+import GamePanel from '../Components/GamePanel';
+import RightUpper from '../Components/RightUpper';
 
-
-const Losowanie: React.FC = () => {
+const Rolled: React.FC = () => {
     return (
         <Container component="main" maxWidth={false} disableGutters>
             <Box
@@ -16,8 +15,8 @@ const Losowanie: React.FC = () => {
                     alignItems: 'center',
                 }}
             >
-               <PanelGry />
-               <PrawyGorny />
+               <GamePanel />
+               <RightUpper />
             
             </Box>  
             
@@ -25,4 +24,4 @@ const Losowanie: React.FC = () => {
     );
 };
 
-export default Losowanie;
+export default Rolled;

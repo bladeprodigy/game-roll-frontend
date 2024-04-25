@@ -2,9 +2,10 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import BigButton from '../Components/BigButton';
-import PrawyGorny from '../Components/PrawyGórny';
+import RightUpper from '../Components/RightUpper';
 
-const Losowanie: React.FC = () => {
+
+const Roll: React.FC = () => {
     return (
         <Container component="main" maxWidth={false} disableGutters>
             <Box
@@ -16,21 +17,11 @@ const Losowanie: React.FC = () => {
                 }}
             >
                 <BigButton />
-                <PrawyGorny /> 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                <RightUpper /> 
             </Box>  
             
         </Container>
     );
 };
 
-export default Losowanie;
+export default Roll;
