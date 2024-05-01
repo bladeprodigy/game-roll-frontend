@@ -16,7 +16,7 @@ const SignInButton = () => {
       variant="contained"
       sx={{ mt: 3, mb: 2 }}
       style={{ fontWeight: 'bold' }}
-      onClick={handleClick} // Dodaj obsługę zdarzenia onClick
+      onClick={handleClick} 
     >
       Sign In
     </Button>
