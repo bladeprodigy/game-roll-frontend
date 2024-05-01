@@ -8,3 +8,4 @@ const AvatarComponent = () => (
 );
 
 export default AvatarComponent;
+

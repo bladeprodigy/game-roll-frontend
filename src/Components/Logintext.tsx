@@ -7,7 +7,7 @@ const LoginText = () => (
     variant="h6" 
     style={{ 
         color: '#ad1090', 
-        fontFamily: 'Arial', 
+        fontFamily: 'BlinkMacSystemFont', 
         textAlign: 'center', 
     }}
   >

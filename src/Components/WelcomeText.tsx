@@ -6,7 +6,7 @@ const WelcomeText = () => (
     variant="h3" 
     style={{ 
         color: '#ad1090', 
-        fontFamily: 'Arial', 
+        fontFamily: 'BlinkMacSystemFont', 
         textAlign: 'center', 
         fontWeight: 'bold',
     }}
