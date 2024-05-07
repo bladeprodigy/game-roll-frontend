@@ -4,9 +4,11 @@ import { useState } from 'react';
 import GameDesc from './GameDesc'; 
 import BuyButton from './BuyButton';
 import { keyframes } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 
 const GameName = () => {
   const [showMore, setShowMore] = useState(false);
+  const navigate = useNavigate();
 
   const glow = keyframes`
   0%, 100% {
@@ -16,6 +18,10 @@ const GameName = () => {
     box-shadow: 0 0 10px #807a14, 0 0 20px #807a14, 0 0 30px #807a14, 0 0 40px #807a14;
   }
 `;
+
+  const handleBuyButtonClick = () => {
+    navigate('/thanks');
+  };
 
   return (
     <Box>
@@ -80,7 +86,7 @@ const GameName = () => {
         {showMore ? 'Pokaż mniej' : 'Pokaż więcej'}
       </Button>
       <BuyButton 
-        onClick={() => {}}
+        onClick={handleBuyButtonClick}
         style={{
             position: 'absolute',
             top: '42%', 

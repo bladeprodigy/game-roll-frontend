@@ -8,6 +8,7 @@ import Game from './Pages/Game';
 import ThankYouPage from './Pages/ThankYouPage';
 import Profile from './Pages/Profile';
 import Libra from './Pages/Libra';
+import RegisterPage from './Pages/RegisterPage';
 
 const App = () => {
   return (
@@ -22,9 +23,11 @@ const App = () => {
             <Route path='/Thanks' element={<ThankYouPage />} />
             <Route path='/Profile' element={<Profile />} />
             <Route path='/Libra' element={<Libra />} />
+            <Route path='/register' element={<RegisterPage />} />
+
             
           </Routes>
-        </BrowserRouter>
+        </BrowserRouter>s
     </ThemeProvider>
   );
 }

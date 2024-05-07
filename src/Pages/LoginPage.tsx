@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
@@ -9,22 +10,72 @@ import AvatarComponent from '../Components/AvatarComponent';
 import WelcomeText from '../Components/WelcomeText';
 import LuckyGames from '../Components/LuckyGames';
 import LoginText from '../Components/Logintext';
-import Emailform from '../Components/Emailform';
+import Emailform from '../Components/EmailForm';
 import PasswordField from '../Components/Passwordform';
 import SignInButton from '../Components/Signinbutton';
 import CopyrightComponent from '../Components/CopyrightComponent';
+import Alert from '@mui/material/Alert';
+import { Navigate } from 'react-router-dom';
+
+
+interface FormData {
+  email: string;
+  password: string;
+}
+
+
+interface ServerResponse {
+  accessToken: string;
+  tokenType: string;
+}
+
+// Utwórz instancję axios
+const api = axios.create({
+  baseURL: 'http://localhost:8080', 
+});
 
 export function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [shouldNavigate, setShouldNavigate] = useState(false);
+  
  
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const formData: FormData = {
+      email: data.get('email') as string,
+      password: data.get('password') as string,
+    };
+
+    try {
+      const response = await api.post<ServerResponse>('/auth/login', formData);
+
+      setShouldNavigate(true);
+      
+    
+      localStorage.setItem('jwt', response.data.accessToken);
+
+     
+      api.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
+
+    
+      setErrorMessage(null);
+    } catch (error: any) {
+      if (error.response && error.response.data.message === 'Invalid password') {
+      
+        setErrorMessage('Wrong password');
+      } else {
+     
+        setErrorMessage('Something went wrong.');
+      }
+    }
   };
 
+  if (shouldNavigate) {
+    return <Navigate to="/roll" />
+  }
   return (
     <Container component="main" maxWidth={false}  disableGutters>
       <Box
@@ -40,8 +91,8 @@ export function LoginPage() {
         <LuckyGames />
         <LoginText />
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 5 }}>
-          <Emailform />
-          <PasswordField />
+        <Emailform value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
+        <PasswordField value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
           <FormControlLabel
             control={<Checkbox value="remember" style={{ color: 'white' }} />}
             label="Remember me"
@@ -55,12 +106,13 @@ export function LoginPage() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/register" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
         </Box>
+        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
       </Box>
       <CopyrightComponent />
     </Container>
@@ -68,3 +120,4 @@ export function LoginPage() {
 }
 
 export default LoginPage;
+

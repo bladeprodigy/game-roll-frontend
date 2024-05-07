@@ -5,6 +5,12 @@ import BuyButton from './BuyButton';
 
 const TripleButton: React.FC = () => {
   const navigate = useNavigate(); 
+  const handleLogout = () => {
+    localStorage.clear();
+
+    navigate('/');
+  };
+  
   return (
     <>
       <BuyButton 
@@ -20,10 +26,10 @@ const TripleButton: React.FC = () => {
         Kup następną!
       </BuyButton>
       <BuyButton 
-        onClick={() => console.log('Button 3 clicked')} 
+        onClick={() => handleLogout()}
         style={{ position: 'absolute', top: '630px', left: '1300px', backgroundColor: 'gray', fontSize: '60px', color: 'white' }} 
       >
-        Wyloguj
+        Wyloguj 
       </BuyButton>
     </>
   );

@@ -1,25 +1,25 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-interface PasswordFieldProps {
+interface AdressFormProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PasswordField: React.FC<PasswordFieldProps> = ({ value, onChange }) => (
+const AdressForm: React.FC<AdressFormProps> = ({ value, onChange }) => (
   <TextField
     margin="normal"
     required
     fullWidth
-    name="password"
-    label="Password"
-    type="password"
-    id="password"
-    autoComplete="current-password"
+    id="address"
+    label="Address"
+    name="address"
+    autoComplete="address"
+    autoFocus
     value={value}
     onChange={onChange}
     sx={{ backgroundColor: 'white' }}
   />
 );
 
-export default PasswordField;
+export default AdressForm;

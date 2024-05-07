@@ -1,7 +1,7 @@
 // SignInButton.tsx
 import Button from '@mui/material/Button';
 
-const SignInButton = () => {
+const RegisterButton = () => {
   return (
     <Button
       type="submit"
@@ -10,9 +10,9 @@ const SignInButton = () => {
       sx={{ mt: 3, mb: 2 }}
       style={{ fontWeight: 'bold' }}
     >
-      Sign In
+      Register
     </Button>
   );
 };
 
-export default SignInButton;
+export default RegisterButton;
