@@ -1,6 +1,12 @@
+import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const Emailform = () => (
+interface EmailFormProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const EmailForm: React.FC<EmailFormProps> = ({ value, onChange }) => (
   <TextField
     margin="normal"
     required
@@ -10,8 +16,10 @@ const Emailform = () => (
     name="email"
     autoComplete="email"
     autoFocus
+    value={value}
+    onChange={onChange}
     sx={{ backgroundColor: 'white' }}
   />
 );
 
-export default Emailform;
+export default EmailForm;
