@@ -6,11 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { keyframes } from '@mui/system';
 
-const BigButton: React.FC = () => {
+interface BigButtonProps {
+  onButtonClick: () => void;
+}
+
+const BigButton: React.FC<BigButtonProps> = ({ onButtonClick }) => {
   const navigate = useNavigate();
   const theme = useTheme();
 
   const handleClick = () => {
+    onButtonClick();
     navigate('/rolled');
   };
 

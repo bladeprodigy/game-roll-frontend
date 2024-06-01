@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import React from 'react';
 import AfterPurchaseMessage from '../Components/AfterPurchaseMessage';
 import TripleButton from '../Components/TripleButton';
@@ -7,19 +7,15 @@ import TripleButton from '../Components/TripleButton';
 
 const ThankYouPage: React.FC = () => {
     return (
-        <Container component="main" maxWidth={false} disableGutters>
-            <Box
-                sx={{
-                    marginTop: 0,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
+        <Container component="main" maxWidth={false} disableGutters sx={{
+            display: 'flex',
+            flexDirection: 'Column',
+            justifyContent: 'center'
+        }}>
                 <AfterPurchaseMessage />
                 <TripleButton />
                 
-            </Box>  
+
             
         </Container>
     );

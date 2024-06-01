@@ -11,7 +11,7 @@ interface BuyButtonProps {
 
 const StyledButton = styled(Button)(({ style }: BuyButtonProps) => ({
   ...style,
-  color: '#ad1090',
+  color: '#861884',
   backgroundColor: '#e6dc2e',
   boxShadow: '1px 1px 15px 5px rgba(0, 0, 0, 0.5)',
   borderRadius: '25px',

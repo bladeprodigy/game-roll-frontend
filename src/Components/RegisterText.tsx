@@ -1,6 +1,7 @@
+// LoginText.tsx
 import Typography from '@mui/material/Typography';
 
-const LoginText = () => (
+const RegisterText = () => (
   <Typography 
     component="h1" 
     variant="h6" 
@@ -10,8 +11,8 @@ const LoginText = () => (
         textAlign: 'center', 
     }}
   >
-    Login to roll your games for this week!
+    Register to join the community, and roll your first games!
   </Typography>
 );
 
-export default LoginText;
+export default RegisterText;
