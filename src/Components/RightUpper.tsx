@@ -27,27 +27,6 @@ const RightUpper: React.FC = () => {
     >
       <Button 
         variant="contained" 
-        onClick={() => { navigate('/profile'); }}
-        sx={{
-          fontSize: '1rem',
-          padding: '5px 20px',
-          marginRight: '5px', 
-        }}
-      >
-        <Typography 
-          component="h1" 
-          variant="h6"
-          sx={{ 
-            color: '#ffffff', 
-            fontFamily: 'Arial', 
-            textAlign: 'center', 
-          }}
-        >
-          PROFILE
-        </Typography>
-      </Button>
-      <Button 
-        variant="contained" 
         onClick={handleLogout}
         sx={{
           fontSize: '1rem',

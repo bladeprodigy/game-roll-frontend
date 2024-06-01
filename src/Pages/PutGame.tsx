@@ -135,7 +135,7 @@ const PutGame = () => {
                             value={gameData.name}
                             onChange={handleInputChange}
                             sx={{ backgroundColor: 'white' }}
-                            InputLabelProps={{ style: { color: '#ad1090', padding: '10px'  } }}
+                            InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
                         />
                         <TextField
                             variant="outlined"
@@ -148,7 +148,7 @@ const PutGame = () => {
                             value={gameData.description}
                             onChange={handleInputChange}
                             sx={{ backgroundColor: 'white' }}
-                            InputLabelProps={{ style: { color: '#ad1090', padding: '10px'  } }}
+                            InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
                         />
                         <TextField
                             variant="outlined"
@@ -161,7 +161,7 @@ const PutGame = () => {
                             value={gameData.price}
                             onChange={handleInputChange}
                             sx={{ backgroundColor: 'white' }}
-                            InputLabelProps={{ style: { color: '#ad1090', padding: '10px'  } }}
+                            InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
                         />
                         <TextField
                             variant="outlined"
@@ -174,7 +174,7 @@ const PutGame = () => {
                             value={gameData.publisher}
                             onChange={handleInputChange}
                             sx={{ backgroundColor: 'white' }}
-                            InputLabelProps={{ style: { color: '#ad1090', padding: '10px'  } }}
+                            InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
                         />
                         </Box>
                         <Button type="submit" variant="contained" color="primary">

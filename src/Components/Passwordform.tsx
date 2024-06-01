@@ -19,6 +19,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({ value, onChange }) => (
     value={value}
     onChange={onChange}
     sx={{ backgroundColor: 'white' }}
+    InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
   />
 );
 
