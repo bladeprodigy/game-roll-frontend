@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -101,16 +99,11 @@ export function LoginPage() {
                 <WelcomeText/>
                 <LuckyGames/>
                 <LoginText/>
-                <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 5}}>
-                    <Emailform value={email}
+                <Box  component="form" onSubmit={handleSubmit} noValidate sx={{mt: 5}}>
+                    <Emailform  value={email}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
                     <PasswordField value={password}
                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
-                    <FormControlLabel
-                        control={<Checkbox value="remember" style={{color: 'white'}}/>}
-                        label="Remember me"
-                        style={{color: 'white'}}
-                    />
                     <SignInButton/>
                     <Grid container>
                         <Grid item xs>

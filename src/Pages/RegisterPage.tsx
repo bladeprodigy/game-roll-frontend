@@ -86,38 +86,34 @@ const RegisterPage: React.FC = () => {
             }}
           >
             <RegisterTexts />
-            <Box component="form" noValidate sx={{ mt: -12 }} onSubmit={handleSubmit}>
-              <Grid container spacing={0} justifyContent="center"> 
-                <Grid item xs={8}> 
-                  <Emailform value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
-                </Grid>
-                <Grid item xs={8}> 
-                  <PasswordField value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
-                </Grid>
-                <Grid item xs={8}> 
-                  <PasswordField value={confirmPassword} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)} />
-                </Grid>
-                <Grid item xs={8}> 
-                  <NameForm value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
-                </Grid>
-                <Grid item xs={8}>
-                  <SurnameForm value={surname} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSurname(e.target.value)} />
-                </Grid>
-                <Grid item xs={8}> 
-                  <AdressForm value={address} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddress(e.target.value)} />
-                </Grid>
-                <Grid item xs={5}> 
-                  <RegisterButton />
-                </Grid>
-                {errorMessage && (
-                  <Grid container item xs={8} justifyContent="center">
-                    <Grid item xs={3}>
-                      <Alert severity="error">{errorMessage}</Alert>
-                    </Grid>
+              <Box component="form" noValidate sx={{ mt: -12 }} onSubmit={handleSubmit}>
+                  <Grid container spacing={0} justifyContent="center">
+                      <Grid item xs={8}>
+                          <Emailform value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={8}>
+                          <PasswordField value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={8}>
+                          <PasswordField value={confirmPassword} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={8}>
+                          <NameForm value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={8}>
+                          <SurnameForm value={surname} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSurname(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={8}>
+                          <AdressForm value={address} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddress(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={5}>
+                          <RegisterButton />
+                      </Grid>
                   </Grid>
-                )}
-              </Grid>
-            </Box>
+                  {errorMessage && (
+                      <Alert severity="error" sx={{ maxWidth: '20%', margin: 'auto', mt: 2 }}>{errorMessage}</Alert>
+                  )}
+              </Box>
           </Box>
         </Container>
       );
