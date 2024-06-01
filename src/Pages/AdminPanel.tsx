@@ -1,12 +1,10 @@
-import React from 'react';
 import { Box, Container } from '@mui/material';
-import Slide from '../Components/Slide'; 
-import FewGameCards from '../Components/FewGameCards';
+import AdminSlide from '../Components/AdminSlide';
 
-const Libra: React.FC = () => {
+const AdminPanel = () => {
   return (
     <Container component="main" maxWidth={false} disableGutters>
-      <Slide /> {}
+      <AdminSlide /> {}
       <Box
         sx={{
           marginTop: 0,
@@ -15,10 +13,10 @@ const Libra: React.FC = () => {
           alignItems: 'flex-start',
         }}
       >
-        <FewGameCards />
+        
       </Box>
     </Container>
   );
 };
 
-export default Libra;
+export default AdminPanel;

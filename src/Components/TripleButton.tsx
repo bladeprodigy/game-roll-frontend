@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BuyButton from './BuyButton';
+import {Box} from "@mui/material";
 
 const TripleButton: React.FC = () => {
   const navigate = useNavigate(); 
@@ -13,24 +14,25 @@ const TripleButton: React.FC = () => {
   
   return (
     <>
-      <BuyButton 
-        onClick={() => navigate('/profile')} 
-        style={{ position: 'absolute', top: '630px', left: '300px', backgroundColor: '#2ebbe6', fontSize: '60px', color: 'white' }} 
-      >
-        Profil!
-      </BuyButton>
+        <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: '20px'
+        }}>
       <BuyButton 
         onClick={() => navigate('/rolled')} 
-        style={{ position: 'absolute', top: '630px', left: '680px', fontSize: '60px', color: 'white' }} 
+        style={{ fontSize: '60px', color: 'white' }}
       >
         Kup następną!
       </BuyButton>
       <BuyButton 
         onClick={() => handleLogout()}
-        style={{ position: 'absolute', top: '630px', left: '1300px', backgroundColor: 'gray', fontSize: '60px', color: 'white' }} 
+        style={{backgroundColor: 'gray', fontSize: '60px', color: 'white' }}
       >
         Wyloguj 
       </BuyButton>
+        </Box>
     </>
   );
 };

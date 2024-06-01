@@ -3,12 +3,16 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import Theme from './theme';
 import LoginPage from './Pages/LoginPage';
 import Roll from './Pages/Roll';
-import Rolled from './Pages/Rolled';
 import Game from './Pages/Game';
 import ThankYouPage from './Pages/ThankYouPage';
-import Profile from './Pages/Profile';
-import Libra from './Pages/Libra';
 import RegisterPage from './Pages/RegisterPage';
+import AddPhoto from './Pages/AddPhoto.tsx';
+import PutGame from './Pages/PutGame';
+import DeleteGame from './Pages/DeleteGame';
+import GetAllGames from './Pages/GetAllGames';
+import AddGame from './Pages/AddGame';
+import AdminPanel from './Pages/AdminPanel';
+import GamePanel from './Pages/GamePanel';
 
 const App = () => {
   return (
@@ -18,16 +22,18 @@ const App = () => {
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/roll" element={<Roll />} />
-            <Route path="/rolled" element={<Rolled />} />
-            <Route path="/Game" element={<Game />} />
+            <Route path="/rolled" element={<GamePanel />} />
+            <Route path="/games/:id" element={<Game />} />
             <Route path='/Thanks' element={<ThankYouPage />} />
-            <Route path='/Profile' element={<Profile />} />
-            <Route path='/Libra' element={<Libra />} />
             <Route path='/register' element={<RegisterPage />} />
-
-            
+            <Route path='/add-photo' element={<AddPhoto />} />
+            <Route path='/edit-game' element={<PutGame />} />
+            <Route path='/delete-game' element={<DeleteGame />} />
+            <Route path='/games' element={<GetAllGames />} />
+            <Route path='/add-game' element={<AddGame />} />
+            <Route path='/admin' element={<AdminPanel />} />
           </Routes>
-        </BrowserRouter>s
+        </BrowserRouter>
     </ThemeProvider>
   );
 }

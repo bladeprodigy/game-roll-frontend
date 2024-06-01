@@ -34,36 +34,42 @@ const RegisterPage: React.FC = () => {
     const [shouldNavigate, setShouldNavigate] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
+        event.preventDefault();
 
-      if (password !== confirmPassword) {
-        setErrorMessage('Passwords do not match.');
-        return;
-      }
+        if (password !== confirmPassword) {
+            setErrorMessage('Passwords do not match.');
+            return;
+        }
 
-      const formData: FormData = {
-        email,
-        password,
-        confirmPassword,
-        name,
-        surname,
-        address,
-      };
-  
-      try {
-          const response = await api.post('/auth/register', formData);
-  
-          console.log(response.data);
-          setErrorMessage(null);
-          setShouldNavigate(true);
-      } catch (error: any) {
-          if (error.response && error.response.data.message) {
-            setErrorMessage(error.response.data.message);
-          } else {
-            setErrorMessage('Something went wrong.');
-          }
-      }
-  };
+        const formData: FormData = {
+            email,
+            password,
+            confirmPassword,
+            name,
+            surname,
+            address,
+        };
+
+        try {
+             await api.post('/auth/register', formData);
+
+            setErrorMessage(null);
+            setShouldNavigate(true);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                const { response } = error as { response?: { data: { message?: string, status?: string, timestamp?: string } | Array<{ message: string, status: string, timestamp: string }> } };
+                if (response?.data && !Array.isArray(response.data) && response.data.message) {
+                    setErrorMessage(response.data.message);
+                } else if (response?.data && Array.isArray(response.data) && response.data.length > 0) {
+                    setErrorMessage(response.data[0].message);
+                } else {
+                    setErrorMessage('Something went wrong.');
+                }
+            } else {
+                setErrorMessage('Something went wrong.');
+            }
+        }
+    };
 
     if (shouldNavigate) {
         return <Navigate to="/" />
