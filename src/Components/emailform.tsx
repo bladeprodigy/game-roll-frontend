@@ -19,7 +19,7 @@ const EmailForm: React.FC<EmailFormProps> = ({ value, onChange }) => (
     value={value}
     onChange={onChange}
     sx={{ backgroundColor: 'white' }}
-    InputLabelProps={{ style: { color: '#ad1090', marginTop: '10px'  }, shrink: true }}
+    InputLabelProps={{ style: { color: '#b00f93', marginTop: '10px'  }, shrink: true }}
   />
 );
 
