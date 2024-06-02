@@ -1,15 +1,9 @@
 import Typography from '@mui/material/Typography';
 import {Box} from '@mui/material';
-
-interface GameNameProps {
-    name: string;
-    description: string;
-}
+import React from "react";
+import {GameNameProps} from "../Interfaces/GameNameProps.ts";
 
 const GameName: React.FC<GameNameProps> = ({name, description}) => {
-
-
-
     return (
         <Box sx={{
             display: 'flex',
@@ -29,11 +23,9 @@ const GameName: React.FC<GameNameProps> = ({name, description}) => {
                     fontWeight: 'bold',
                     fontSize: '100px',
                     textShadow: '10px 10px 10px rgba(0, 0, 0, 0.5)',
-                }}
-            >
+                }}>
                 {name}
             </Typography>
-
             <Box
                 sx={{
                     display: 'flex',
@@ -59,12 +51,11 @@ const GameName: React.FC<GameNameProps> = ({name, description}) => {
                     '&::-webkit-scrollbar-thumb:hover': {
                         background: '#880073',
                     },
-                }} >
-            <Typography variant="body1" >
-                {description}
-            </Typography>
+                }}>
+                <Typography variant="body1">
+                    {description}
+                </Typography>
             </Box>
-
         </Box>
     );
 };

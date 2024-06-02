@@ -1,26 +1,19 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import BigButton from '../Components/BigButton';
 import RightUpper from '../Components/RightUpper';
-import axios from 'axios';
+import {createAPI} from "../Utils/api.ts";
 
 const Roll: React.FC = () => {
-    const token = localStorage.getItem('jwt');
-
-    const api = axios.create({
-      baseURL: 'http://localhost:8080',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const api = createAPI();
 
     const fetchData = useCallback(async () => {
         try {
-          const response = await api.post('/roll');
-          console.log(response.data);
+            const response = await api.post('/roll');
+            console.log(response.data);
         } catch (error) {
-          console.error('Failed to fetch data:', error);
+            console.error('Failed to fetch data:', error);
         }
     }, []);
 
@@ -32,12 +25,10 @@ const Roll: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                }}
-            >
-               <BigButton onButtonClick={fetchData} />
-                <RightUpper /> 
-            </Box>  
-            
+                }}>
+                <BigButton onButtonClick={fetchData}/>
+                <RightUpper/>
+            </Box>
         </Container>
     );
 };

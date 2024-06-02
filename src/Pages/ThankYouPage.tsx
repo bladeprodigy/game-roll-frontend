@@ -1,9 +1,7 @@
-import { Container } from '@mui/material';
+import {Container} from '@mui/material';
 import React from 'react';
 import AfterPurchaseMessage from '../Components/AfterPurchaseMessage';
 import TripleButton from '../Components/TripleButton';
-
-
 
 const ThankYouPage: React.FC = () => {
     return (
@@ -12,11 +10,8 @@ const ThankYouPage: React.FC = () => {
             flexDirection: 'Column',
             justifyContent: 'center'
         }}>
-                <AfterPurchaseMessage />
-                <TripleButton />
-                
-
-            
+            <AfterPurchaseMessage/>
+            <TripleButton/>
         </Container>
     );
 };

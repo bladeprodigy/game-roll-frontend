@@ -1,37 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 import {useNavigate} from 'react-router-dom';
 import Container from '@mui/material/Container/Container';
 import RightUpper from "../Components/RightUpper.tsx";
-
-
-interface Game {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    publisher: string;
-    img: string;
-    buyState: boolean;
-}
-
-
+import {GameData} from "../Interfaces/GameData.ts";
+import {createAPI} from "../Utils/api.ts";
 
 const GamePanel: React.FC = () => {
     const navigate = useNavigate();
-    const [games, setGames] = useState<Game[]>([]);
+    const [games, setGames] = useState<GameData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const token = localStorage.getItem('jwt');
-
-    const api = axios.create({
-        baseURL: 'http://localhost:8080',
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
+    const api = createAPI();
 
     useEffect(() => {
         api.get('/roll')
@@ -59,8 +40,7 @@ const GamePanel: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-evenly',
             alignItems: 'center',
-        }}
-        >
+        }}>
             {games[0] && (
                 <Box sx={{
                     display: 'flex',
@@ -118,10 +98,8 @@ const GamePanel: React.FC = () => {
                     }} image={`http://localhost:8080/img/${games[2].img}`} alt={games[2].name}
                                onClick={games[2].buyState ? undefined : () => handleButtonClick(games[2].id)}/>
                 </Box>
-
             )}
-            <RightUpper />
-
+            <RightUpper/>
         </Container>
     )
 };

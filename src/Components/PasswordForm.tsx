@@ -2,16 +2,16 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import {StringFormProps} from "../Interfaces/StringFormProps.ts";
 
-const SurnameForm: React.FC<StringFormProps> = ({value, onChange}) => (
+const PasswordField: React.FC<StringFormProps> = ({value, onChange}) => (
     <TextField
         margin="normal"
         required
         fullWidth
-        id="surname"
-        label="Surname"
-        name="surname"
-        autoComplete="surname"
-        autoFocus
+        name="password"
+        label="Password"
+        type="password"
+        id="password"
+        autoComplete="current-password"
         value={value}
         onChange={onChange}
         sx={{backgroundColor: 'white'}}
@@ -19,4 +19,4 @@ const SurnameForm: React.FC<StringFormProps> = ({value, onChange}) => (
     />
 );
 
-export default SurnameForm;
+export default PasswordField;

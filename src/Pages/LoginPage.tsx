@@ -1,38 +1,23 @@
 import React, {useState} from 'react';
-import axios from 'axios';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import AvatarComponent from '../Components/AvatarComponent';
 import WelcomeText from '../Components/WelcomeText';
-import LuckyGames from '../Components/LuckyGames';
-import LoginText from '../Components/Logintext';
-import Emailform from '../Components/EmailForm';
-import PasswordField from '../Components/Passwordform';
-import SignInButton from '../Components/Signinbutton';
+import LuckyGames from '../Components/LuckyGames.tsx';
+import EmailForm from '../Components/EmailForm.tsx';
+import PasswordField from '../Components/PasswordForm.tsx';
 import CopyrightComponent from '../Components/CopyrightComponent';
 import Alert from '@mui/material/Alert';
-import {Navigate} from 'react-router-dom';
-
-
-interface FormData {
-    email: string;
-    password: string;
-}
-
-
-interface ServerResponse {
-    accessToken: string;
-    tokenType: string;
-    role: string;
-    rollExists: boolean;
-}
-
-
-const api = axios.create({
-    baseURL: 'http://localhost:8080',
-});
+import {Navigate, useNavigate} from 'react-router-dom';
+import Typography from "@mui/material/Typography";
+import CasinoIcon from "@mui/icons-material/Casino";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import {LoginFormData} from "../Interfaces/LoginFormData.ts";
+import {ServerResponse} from "../Interfaces/ServerResponse.ts";
+import {handleError} from "../Utils/errorHandler.ts";
+import {createAPI} from "../Utils/api.ts";
+import { Link as MuiLink } from '@mui/material';
 
 export function LoginPage() {
     const [email, setEmail] = useState('');
@@ -40,11 +25,13 @@ export function LoginPage() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [shouldNavigate, setShouldNavigate] = useState<string | null>(null);
 
+    const api = createAPI();
+    const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const formData: FormData = {
+        const formData: LoginFormData = {
             email: data.get('email') as string,
             password: data.get('password') as string,
         };
@@ -57,28 +44,16 @@ export function LoginPage() {
             setErrorMessage(null);
 
             if (response.data.role === 'ADMIN') {
-                setShouldNavigate('/admin');
+                setShouldNavigate('/admin/games');
             } else if (response.data.role === 'CUSTOMER' && !response.data.rollExists) {
-                setShouldNavigate('/roll');
+                setShouldNavigate('/draw-today-games');
             } else if (response.data.role === 'CUSTOMER' && response.data.rollExists) {
-                setShouldNavigate('/rolled');
+                setShouldNavigate('/my-today-games');
             } else {
                 setShouldNavigate(null);
             }
-
         } catch (error: unknown) {
-            if (error instanceof Error) {
-                const { response } = error as { response?: { data: { message?: string, status?: string, timestamp?: string } | Array<{ message: string, status: string, timestamp: string }> } };
-                if (response?.data && !Array.isArray(response.data) && response.data.message) {
-                    setErrorMessage(response.data.message);
-                } else if (response?.data && Array.isArray(response.data) && response.data.length > 0) {
-                    setErrorMessage(response.data[0].message);
-                } else {
-                    setErrorMessage('Something went wrong.');
-                }
-            } else {
-                setErrorMessage('Something went wrong.');
-            }
+            handleError(error, setErrorMessage);
         }
     };
 
@@ -93,28 +68,42 @@ export function LoginPage() {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                }}
-            >
-                <AvatarComponent/>
+                }}>
+                <Avatar sx={{m: 10, backgroundColor: 'secondary.main', width: 75, height: 75}}>
+                    <CasinoIcon fontSize="large"/>
+                </Avatar>
                 <WelcomeText/>
                 <LuckyGames/>
-                <LoginText/>
-                <Box  component="form" onSubmit={handleSubmit} noValidate sx={{mt: 5}}>
-                    <Emailform  value={email}
+                <Typography
+                    component="h1"
+                    variant="h6"
+                    style={{
+                        color: '#ad1090',
+                        fontFamily: 'BlinkMacSystemFont',
+                        textAlign: 'center',
+                    }}>
+                    Login to draw your games for today!
+                </Typography>
+                <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 5}}>
+                    <EmailForm value={email}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
                     <PasswordField value={password}
                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
-                    <SignInButton/>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{mt: 3, mb: 2}}
+                        style={{fontWeight: 'bold'}}>
+                        Sign In
+                    </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="/register" variant="body2">
+                            <MuiLink component="button" onClick={() => navigate('/register')} variant="body2">
                                 {"Don't have an account? Sign Up"}
-                            </Link>
+                            </MuiLink>
                         </Grid>
                     </Grid>
                 </Box>
