@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import WelcomeText from '../Components/WelcomeText';
 import LuckyGames from '../Components/LuckyGames.tsx';
-import EmailForm from '../Components/EmailForm.tsx';
+import EmailFieldForm from '../Components/EmailFieldForm.tsx';
 import PasswordField from '../Components/PasswordForm.tsx';
 import CopyrightComponent from '../Components/CopyrightComponent';
 import Alert from '@mui/material/Alert';
@@ -85,7 +85,7 @@ export function LoginPage() {
                     Login to draw your games for today!
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 5}}>
-                    <EmailForm value={email}
+                    <EmailFieldForm value={email}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
                     <PasswordField value={password}
                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>

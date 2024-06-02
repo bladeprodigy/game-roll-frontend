@@ -3,7 +3,7 @@ import {Alert, Box, Container, Grid} from '@mui/material';
 import axios from 'axios';
 import {Navigate} from 'react-router-dom';
 import RegisterTexts from '../Components/RegisterTexts';
-import EmailForm from '../Components/EmailForm.tsx';
+import EmailFieldForm from '../Components/EmailFieldForm.tsx';
 import PasswordField from '../Components/PasswordForm.tsx';
 import NameForm from '../Components/NameForm';
 import SurnameForm from '../Components/SurnameForm';
@@ -67,7 +67,7 @@ const RegisterPage: React.FC = () => {
                 <Box component="form" noValidate sx={{mt: -12}} onSubmit={handleSubmit}>
                     <Grid container spacing={0} justifyContent="center">
                         <Grid item xs={8}>
-                            <EmailForm value={email}
+                            <EmailFieldForm value={email}
                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
                         </Grid>
                         <Grid item xs={8}>
