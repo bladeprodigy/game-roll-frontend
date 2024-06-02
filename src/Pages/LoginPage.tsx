@@ -39,6 +39,7 @@ export function LoginPage() {
         try {
             const response = await api.post<ServerResponse>('/auth/login', formData);
             localStorage.setItem('jwt', response.data.accessToken);
+            localStorage.setItem('role', response.data.role);
             api.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
 
             setErrorMessage(null);

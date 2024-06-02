@@ -2,7 +2,6 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import {useNavigate} from 'react-router-dom';
 import {useTheme} from '@mui/material/styles';
 import {keyframes} from '@mui/system';
 
@@ -11,14 +10,11 @@ interface BigButtonProps {
 }
 
 const BigButton: React.FC<BigButtonProps> = ({onButtonClick}) => {
-    const navigate = useNavigate();
     const theme = useTheme();
 
     const handleClick = () => {
         onButtonClick();
-        navigate('/my-today-games');
     };
-
 
     const glow = keyframes`
         0%, 100% {

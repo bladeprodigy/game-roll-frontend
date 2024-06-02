@@ -30,7 +30,7 @@ const AdminPage = () => {
                     <Card key={game.id} sx={{width: 200}}>
                         <CardMedia
                             component="img"
-                            height="140"
+                            height="200"
                             image={`http://localhost:8080/img/${game.img}`}
                             alt={game.name}
                             onClick={() => navigate(`/admin/games/${game.id}`)}

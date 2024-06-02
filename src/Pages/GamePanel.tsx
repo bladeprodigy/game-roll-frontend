@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Container from '@mui/material/Container/Container';
 import RightUpper from "../Components/RightUpper.tsx";
 import {GameData} from "../Interfaces/GameData.ts";
@@ -11,6 +11,7 @@ const GamePanel: React.FC = () => {
     const navigate = useNavigate();
     const [games, setGames] = useState<GameData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const location = useLocation();
 
     const api = createAPI();
 
@@ -24,7 +25,7 @@ const GamePanel: React.FC = () => {
                 console.error('There was an error!', error);
                 setIsLoading(false);
             });
-    }, []);
+    }, [location]);
 
     const handleButtonClick = (gameId: number) => {
         navigate(`/games/${gameId}`);

@@ -19,7 +19,7 @@ const TripleButton: React.FC = () => {
                 gap: '20px'
             }}>
                 <BuyButton
-                    onClick={() => navigate('/rolled')}
+                    onClick={() => navigate('/my-today-games')}
                     style={{fontSize: '60px', color: 'white'}}>
                     Buy next game!
                 </BuyButton>

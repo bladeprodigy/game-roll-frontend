@@ -41,7 +41,7 @@ const GameDetails = () => {
                     <Box sx={{p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'white'}}>
                         <CardMedia
                             component="img"
-                            height="400"
+                            height="500"
                             image={`http://localhost:8080/img/${game.img}`}
                             alt={game.name}
                         />
