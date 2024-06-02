@@ -42,7 +42,7 @@ const UpdatePhotoDialog = ({ id }: DialogProps) => {
 
     return (
         <>
-            <Button variant="contained" sx={{width: '150px', height: '50px'}} onClick={handleOpen}>Update Photo</Button>
+            <Button variant="contained" sx={{fontSize: '30px', width: '180px', height: '89px', backgroundColor: 'hotpink', lineHeight: '1' }} onClick={handleOpen}>Update Photo</Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Upload a new photo for this game</DialogTitle>
                 <DialogActions>

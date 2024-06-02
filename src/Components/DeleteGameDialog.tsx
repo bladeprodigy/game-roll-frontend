@@ -32,7 +32,7 @@ const DeleteGameDialog = ({ id }: DialogProps) => {
 
     return (
         <>
-            <Button variant="contained" color="secondary" sx={{width: '150px', height: '50px'}} onClick={handleOpen}>Delete</Button>
+            <Button variant="contained"  sx={{fontSize: '35px', width: '180px', height: '89px', backgroundColor: 'red' }} onClick={handleOpen}>Delete</Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Are you sure you want to delete this game?</DialogTitle>
                 <DialogActions>

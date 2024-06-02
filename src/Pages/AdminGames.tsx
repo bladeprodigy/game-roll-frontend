@@ -4,6 +4,7 @@ import {Box, Card, CardContent, CardMedia, Container, Typography} from '@mui/mat
 import {GameData} from "../Interfaces/GameData.ts";
 import CreateGameButton from "../Components/CreateGameForm.tsx";
 import {useNavigate} from "react-router-dom";
+import RightUpper from "../Components/RightUpper.tsx";
 
 const AdminPage = () => {
     const [games, setGames] = useState<GameData[]>([]);
@@ -24,10 +25,11 @@ const AdminPage = () => {
         <Container component="main" maxWidth={false} disableGutters>
             <Box display="flex" justifyContent="center" mb={4} pt={4}>
                 <CreateGameButton />
+                <RightUpper showBackButton={false} />
             </Box>
             <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2}}>
                 {games.map((game) => (
-                    <Card key={game.id} sx={{width: 200}}>
+                    <Card key={game.id} sx={{width: 150}}>
                         <CardMedia
                             component="img"
                             height="200"

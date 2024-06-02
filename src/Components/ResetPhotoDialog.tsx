@@ -28,7 +28,7 @@ const ResetPhotoDialog = ({ id }: DialogProps) => {
 
     return (
         <>
-            <Button variant="contained" sx={{width: '150px', height: '50px'}} onClick={handleOpen}>Reset Photo</Button>
+            <Button variant="contained" sx={{fontSize: '30px', width: '180px', height: '89px', backgroundColor: 'main', lineHeight: '1' }} onClick={handleOpen}>Reset Photo</Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Are you sure you want to reset the photo for this game?</DialogTitle>
                 <DialogActions>

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 const CopyrightComponent = () => (
     <Box mt={8} mb={4} style={{fontWeight: 'bold'}}>
-        <Typography variant="body2" color="text.secondary" align="center">
+        <Typography variant="body2" color="white" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
                 LuckyGames

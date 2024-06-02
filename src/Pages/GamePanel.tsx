@@ -51,7 +51,7 @@ const GamePanel: React.FC = () => {
                     position: 'relative',
                 }}>
                     <CardMedia component="img" sx={{
-                        width: '320px',
+                        width: '430px',
                         height: '600px',
                         position: 'relative',
                         borderRadius: '10px',
@@ -70,12 +70,13 @@ const GamePanel: React.FC = () => {
                     position: 'relative'
                 }}>
                     <CardMedia component="img" height="500" sx={{
-                        width: '320px',
+                        width: '430px',
                         height: '600px',
                         position: 'relative',
                         borderRadius: '10px',
                         boxShadow: '10px 10px 10px 10px rgba(0, 0, 0, 0.5)',
-                        opacity: games[1].buyState ? 0.5 : 1
+                        opacity: games[1].buyState ? 0.5 : 1,
+
                     }} image={`http://localhost:8080/img/${games[1].img}`} alt={games[1].name}
                                onClick={games[1].buyState ? undefined : () => handleButtonClick(games[1].id)}/>
                 </Box>
@@ -90,17 +91,19 @@ const GamePanel: React.FC = () => {
 
                 }}>
                     <CardMedia component="img" height="500" sx={{
-                        width: '320px',
+                        width: '430px',
                         height: '600px',
                         position: 'relative',
                         borderRadius: '10px',
                         boxShadow: '10px 10px 10px 10px rgba(0, 0, 0, 0.5)',
-                        opacity: games[2].buyState ? 0.5 : 1
+                        opacity: games[2].buyState ? 0.4 : 1,
+                        objectPosition: 'center center'
+
                     }} image={`http://localhost:8080/img/${games[2].img}`} alt={games[2].name}
                                onClick={games[2].buyState ? undefined : () => handleButtonClick(games[2].id)}/>
                 </Box>
             )}
-            <RightUpper/>
+            <RightUpper showBackButton={false} />
         </Container>
     )
 };

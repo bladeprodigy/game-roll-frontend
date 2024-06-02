@@ -43,7 +43,7 @@ const EditGameForm = ({ id, name, description, price, publisher }: GameData) => 
 
     return (
         <>
-            <Button variant="contained" color="primary" sx={{width: '150px', height: '50px'}}
+            <Button variant="contained" color="primary" sx={{fontSize: '35px', width: '180px', height: '89px', backgroundColor: 'green' }}
                     onClick={handleOpen}>Edit</Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Edit Game</DialogTitle>

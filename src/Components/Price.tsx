@@ -7,7 +7,7 @@ const Price: React.FC<PriceProps> = ({price}) => {
         <Typography
             variant="h1"
             style={{
-                color: 'green',
+                color: "greenyellow",
                 fontWeight: 'bold',
                 textShadow: '-1px 0 black, 0 9px black, 1px 0 black, 0 -1px black',
             }}>

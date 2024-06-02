@@ -2,14 +2,23 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import {useNavigate} from 'react-router-dom';
 
-const RightUpper: React.FC = () => {
+interface RightUpperProps {
+    showBackButton?: boolean;
+}
+
+const RightUpper: React.FC<RightUpperProps> = ({ showBackButton = true }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.clear();
         navigate('/');
+    };
+
+    const handleBack = () => {
+        navigate(-1);
     };
 
     return (
@@ -23,6 +32,28 @@ const RightUpper: React.FC = () => {
                 right: 10,
                 padding: '1rem',
             }}>
+            {showBackButton && (
+                <Button
+                    variant="contained"
+                    onClick={handleBack}
+                    sx={{
+                        fontSize: '1rem',
+                        padding: '5px 10px',
+                        marginRight: '1rem',
+                    }}>
+                    <ArrowBackIosIcon sx={{ color: '#ffffff' }} />
+                    <Typography
+                        component="h1"
+                        variant="h6"
+                        sx={{
+                            color: '#ffffff',
+                            fontFamily: 'Arial',
+                            textAlign: 'center',
+                        }}>
+                        BACK
+                    </Typography>
+                </Button>
+            )}
             <Button
                 variant="contained"
                 onClick={handleLogout}

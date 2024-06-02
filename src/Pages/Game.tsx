@@ -8,6 +8,9 @@ import BuyButton from "../Components/BuyButton.tsx";
 import {keyframes} from "@mui/system";
 import {GameData} from "../Interfaces/GameData.ts";
 import {createAPI} from "../Utils/api.ts";
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from "@mui/material";
+import RightUpper from "../Components/RightUpper.tsx";
+
 
 const Game: React.FC = () => {
     const {id} = useParams<{ id: string }>();
@@ -20,6 +23,20 @@ const Game: React.FC = () => {
         50% {
             box-shadow: 0 0 10px #807a14, 0 0 20px #807a14, 0 0 30px #807a14, 0 0 40px #807a14;
         }`;
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleConfirm = () => {
+        handleBuyButtonClick();
+        handleClose();
+    };
 
     const api = createAPI();
 
@@ -72,7 +89,7 @@ const Game: React.FC = () => {
                 <Typography variant='h6'
                             style={{
                                 color: 'white',
-                                textShadow: '-1px 0 white, 0 2px black, 1px 0 black, 0 -1px white',
+                                textShadow: '4px 1px 1px rgba(0, 0, 0, 0.5)',
                             }}> Publisher: {gameData.publisher}</Typography>
             </Box>
             <GameName name={gameData.name} description={gameData.description}/>
@@ -86,7 +103,7 @@ const Game: React.FC = () => {
             }}>
                 <Price price={gameData.price}/>
                 <BuyButton
-                    onClick={handleBuyButtonClick}
+                    onClick={handleClickOpen}
                     style={{
                         width: '300px',
                         height: '200px',
@@ -95,7 +112,25 @@ const Game: React.FC = () => {
                         lineHeight: '1.2',
                         animation: `${glow} 20s infinite`,
                     }}/>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">{"Purchase confirmation"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText  id="alert-dialog-description">
+                            Are you sure you want to buy this game?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions >
+                        <Button sx={{backgroundColor: '#e7d910', color: '#b00f93'}} onClick={handleClose}>Cancel</Button>
+                        <Button sx={{backgroundColor: '#e7d910', color: '#b00f93'}} onClick={handleConfirm} autoFocus>Buy</Button>
+                    </DialogActions>
+                </Dialog>
             </Box>
+            <RightUpper/>
         </Container>
     );
 };

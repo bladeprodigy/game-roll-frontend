@@ -49,10 +49,10 @@ const CreateGameButton = () => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Create Game</DialogTitle>
                 <DialogContent>
-                    <TextField autoFocus margin="dense" name="name" label="Name" fullWidth value={formData.name} onChange={handleChange} />
-                    <TextField margin="dense" name="description" label="Description" fullWidth value={formData.description} onChange={handleChange} />
-                    <TextField margin="dense" name="price" label="Price" fullWidth value={formData.price} onChange={handleChange} />
-                    <TextField margin="dense" name="publisher" label="Publisher" fullWidth value={formData.publisher} onChange={handleChange} />
+                    <TextField autoFocus margin="dense" name="name" label="Name" fullWidth required  value={formData.name} onChange={handleChange} />
+                    <TextField margin="dense" name="description" label="Description" fullWidth required  value={formData.description} onChange={handleChange} />
+                    <TextField margin="dense" name="price" label="Price" fullWidth required  value={formData.price} onChange={handleChange} />
+                    <TextField margin="dense" name="publisher" label="Publisher" fullWidth required  value={formData.publisher} onChange={handleChange} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>

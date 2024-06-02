@@ -8,7 +8,8 @@ const ThankYouPage: React.FC = () => {
         <Container component="main" maxWidth={false} disableGutters sx={{
             display: 'flex',
             flexDirection: 'Column',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            gap: 5,
         }}>
             <AfterPurchaseMessage/>
             <TripleButton/>
